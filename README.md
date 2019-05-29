@@ -12,13 +12,12 @@ class User(object):
         if self.email is not address:
             print("Your email has been updated")
 
-
     def __repr__(self):
         return "Username : {name}, Email :{email}, books read {books}".format(name=self.name, email=self.email, books=self.books)
 
     def __eq__(self, other):
-        if self.email == other.email:
-            self = other
+        if other. __class__ is self. __class__:
+            return (other.name, other.email, other.books) == (self.name, self.email, self.books)
 
     def read_book(self, book, rating=None):
         self.books[book] = rating
@@ -126,6 +125,9 @@ class Tome_Rater(object):
 
     def add_user(self, name, email, user_books=None):
         new_user = User(name, email)
+        if email in self.users:
+            print("That user already exists")
+
         self.users[email] = new_user
         if user_books != None:
             user_books = []
